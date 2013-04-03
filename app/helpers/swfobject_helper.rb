@@ -4,7 +4,7 @@ module SwfobjectHelper
     asset_path(source)
   end
 
-  def swf_tag(name, options = {})
+  def swf_js(name, options = {})
     width = height = nil
     if options[:size]
       width, height = options[:size].split("x")
@@ -39,7 +39,7 @@ module SwfobjectHelper
   end
 
   def swf_tag(name, options={})
-    code = swf_tag(name, options)
+    code = swf_js(name, options)
     javascript_tag(code)
   end
 
