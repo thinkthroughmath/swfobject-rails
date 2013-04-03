@@ -24,7 +24,7 @@ module SwfobjectHelper
       flashvars = options[:flashvars]
     end
 
-    code = "swfobject.embedSWF('%s', '%s', '%s', '%s', '%s', '%s', %s, %s, %s, %s);" % [
+    "swfobject.embedSWF('%s', '%s', '%s', '%s', '%s', '%s', %s, %s, %s, %s);" % [
       swf_path("#{name}.swf"),
       options[:dom_id] || name,
       width,
@@ -36,7 +36,10 @@ module SwfobjectHelper
       options[:attributes].to_json,
       options[:callback] ? options[:callback] : "null",
     ]
+  end
 
+  def swf_tag(name, options={})
+    code = swf_tag(name, options)
     javascript_tag(code)
   end
 
